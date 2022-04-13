@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BUS</string>
+    <string name="LogInScreenIntro">Войти</string>
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
+    <string name="title_activity_find_tickets1st_menu">FindTickets_1stMenu</string>
+    <string name="search">Найти</string>
+</resources>
