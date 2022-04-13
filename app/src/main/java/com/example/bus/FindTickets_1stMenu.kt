@@ -1,40 +1,25 @@
 package com.example.bus
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
-import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.bus.ui.theme.BUSTheme
-import androidx.compose.runtime.getValue
-
-
-class FindTickets_1stMenu : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            BUSTheme {
-
-            }
-        }
-    }
-}
+import com.example.bus.ui.theme.FilterGreen
+import com.example.bus.ui.theme.selectedFilterGreen
 
 
 @Preview
@@ -57,12 +42,14 @@ fun FindTicketsScreen() {
                 .padding(top = 60.dp)
         ) {
             TickedFinder()
+            Filter(name = listOf("Дата", "Время", "Тип транспорта"))
         }
     }
 }
 
 @Composable
 fun TickedFinder() {
+    val shape = RoundedCornerShape(10.dp)
     val searchValue by remember { mutableStateOf("") }
     Column() {
         BasicTextField(
@@ -71,9 +58,10 @@ fun TickedFinder() {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(70.dp)
+                .clip(shape)
                 .padding(top = 10.dp, bottom = 10.dp)
                 .border(
-                    BorderStroke(1.dp, color = Color.Black),
+                    BorderStroke(1.dp, color = Color.Black), shape = shape
                 ),
             singleLine = true,
             decorationBox = { innerTextField ->
@@ -82,15 +70,46 @@ fun TickedFinder() {
                         .padding(start = 10.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-
                     if (searchValue.isEmpty()) {
                         Text("Poisk", style = MaterialTheme.typography.h5)
                     }
                     innerTextField()  //<-- Add this
                 }
             },
-
         )
+
     }
+}
+
+@Composable
+fun Filter(
+    name: List<String>
+) {
+    var selectedItemIndex by remember {
+        mutableStateOf(0)
+    }
+    val shape = RoundedCornerShape(10.dp)
+    LazyRow() {
+        items(name.size) {
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .padding(start = 15.dp, bottom = 15.dp)
+                    .clip(shape)
+                    .clickable { selectedItemIndex = it }
+                    .background(
+                        if (selectedItemIndex == it) selectedFilterGreen
+                        else FilterGreen
+                    )
+            ) {
+                Text(text = name[it],
+                    color = Color.Black,
+                    style = MaterialTheme.typography.h6,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(all = 5.dp))
+            }
+        }
+    }
+
 }
 
