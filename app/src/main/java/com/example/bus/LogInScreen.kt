@@ -31,8 +31,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.bus.entity.loginInfo
 import com.example.bus.ui.theme.RobotoFontFamily
 import com.example.bus.ui.theme.robotoTypography
-import com.example.bus.viewmodel.asdViewModel
-import com.example.bus.viewmodel.asdViewModelFactory
 
 //@Composable
 //fun LogInComposable() {

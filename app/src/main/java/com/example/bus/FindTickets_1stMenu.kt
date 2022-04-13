@@ -78,7 +78,3 @@ fun TickedFinder() {
     }
 }
 
-@Composable
-fun SearchFilter(name: String) {
-    
-}

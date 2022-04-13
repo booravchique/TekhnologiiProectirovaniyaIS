@@ -23,14 +23,15 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.bus.entity.loginInfo
 import com.example.bus.ui.theme.BUSTheme
 import com.example.bus.ui.theme.RobotoFontFamily
-import com.example.bus.viewmodel.asdViewModel
-import com.example.bus.viewmodel.asdViewModelFactory
+import com.example.bus.viewmodel.busViewModel
+import com.example.bus.viewmodel.busViewModelFactory
 
 class MainActivity : ComponentActivity() {
-    val vm by viewModels<asdViewModel>{ asdViewModelFactory(applicationContext as Application)}
+    val vm by viewModels<busViewModel>{ busViewModelFactory(applicationContext as Application)}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -44,7 +45,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun LogInComposable(
-    vm : asdViewModel
+    vm : busViewModel
 ) {
 
     val shape = RoundedCornerShape(30.dp)
@@ -52,8 +53,11 @@ fun LogInComposable(
     val PasswordValue = remember { mutableStateOf("") }
 
     val context = LocalContext.current
+    val vm: busViewModel = viewModel(
+        factory = busViewModelFactory(context.applicationContext as Application)
+    )
 
-    val loginInfoData = listOf(loginInfo(1, "User1", "User1"))
+    val loginInfoData = listOf(loginInfo( 0,"User1", "User1"))
 
     Box(
         modifier = Modifier

@@ -8,7 +8,7 @@ import com.example.bus.repository.repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class asdViewModel(application: Application) : AndroidViewModel(application) {
+class busViewModel(application: Application) : AndroidViewModel(application) {
     private val readAllData: LiveData<List<loginInfo>>
     private val repository: repository
 
@@ -38,13 +38,13 @@ class asdViewModel(application: Application) : AndroidViewModel(application) {
 
 }
 
-class asdViewModelFactory(
+class busViewModelFactory(
     private val application: Application
 ):  ViewModelProvider.Factory {
     override fun <T: ViewModel> create(modelClass: Class<T>): T {  //ошибка может быть тут
         @Suppress("UNCHECKED_CAST")
-        if (modelClass.isAssignableFrom(asdViewModel::class.java)) {
-            return asdViewModel(application) as T
+        if (modelClass.isAssignableFrom(busViewModel::class.java)) {
+            return busViewModel(application) as T
         }
         throw IllegalArgumentException("Error")
     }

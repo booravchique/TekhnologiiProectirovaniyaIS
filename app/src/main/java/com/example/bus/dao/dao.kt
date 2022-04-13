@@ -10,7 +10,7 @@ interface dao {
     @Query("SELECT * FROM LoginInfo")
     fun getAllData(): LiveData<List<loginInfo>>
 
-    @Query("SELECT * FROM LoginInfo WHERE login = login")
+    @Query("SELECT * FROM LoginInfo WHERE login = :login")
     fun getByLogin(login: String): loginInfo?
 
     @Insert
