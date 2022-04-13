@@ -7,6 +7,8 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -20,6 +22,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.bus.ui.theme.BUSTheme
+import androidx.compose.runtime.getValue
+
 
 class FindTickets_1stMenu : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,11 +63,11 @@ fun FindTicketsScreen() {
 
 @Composable
 fun TickedFinder() {
-    val searchValue = remember { mutableStateOf("") }
+    val searchValue by remember { mutableStateOf("") }
     Column() {
-        TextField(
-            value = searchValue.value,
-            onValueChange = { searchValue.value = it },
+        BasicTextField(
+            value = searchValue,
+            onValueChange = { searchValue },
             modifier = Modifier
                 .fillMaxWidth()
                 .height(70.dp)
@@ -71,9 +75,21 @@ fun TickedFinder() {
                 .border(
                     BorderStroke(1.dp, color = Color.Black),
                 ),
-            placeholder = { Text(text = stringResource(R.string.search)) },
             singleLine = true,
-            colors = TextFieldDefaults.textFieldColors(backgroundColor = Color.White)
+            decorationBox = { innerTextField ->
+                Row(
+                    Modifier
+                        .padding(start = 10.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+
+                    if (searchValue.isEmpty()) {
+                        Text("Poisk", style = MaterialTheme.typography.h5)
+                    }
+                    innerTextField()  //<-- Add this
+                }
+            },
+
         )
     }
 }

@@ -36,7 +36,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BUSTheme {
-                LogInComposable(vm)
+//                LogInComposable(vm)
+                FindTicketsScreen()
+
             }
         }
     }
@@ -82,7 +84,7 @@ fun LogInComposable(
                 value = LoginValue.value,
                 onValueChange = { LoginValue.value = it },
                 modifier = Modifier
-                    .width(290.dp)
+                    .width(320.dp)
                     .height(70.dp)
                     .padding(top = 10.dp, bottom = 10.dp)
                     .clip(shape)
@@ -90,7 +92,7 @@ fun LogInComposable(
                         BorderStroke(1.dp, color = Color.Black),
                         shape = shape
                     ),
-                label = { Text(text = stringResource(R.string.login)) },
+                placeholder = { Text(text = stringResource(R.string.login)) },
                 singleLine = true,
                 colors = TextFieldDefaults.textFieldColors(backgroundColor = Color.White)
             )
@@ -98,7 +100,7 @@ fun LogInComposable(
                 value = PasswordValue.value,
                 onValueChange = { PasswordValue.value = it },
                 modifier = Modifier
-                    .width(290.dp)
+                    .width(320.dp)
                     .height(70.dp)
                     .padding(top = 10.dp, bottom = 10.dp)
                     .clip(shape)
@@ -106,7 +108,7 @@ fun LogInComposable(
                         BorderStroke(1.dp, color = Color.Black),
                         shape = shape
                     ),
-                label = { Text(text = stringResource(R.string.password)) },
+                placeholder = { Text(text = stringResource(R.string.password)) },
                 singleLine = true,
                 colors = TextFieldDefaults.textFieldColors(backgroundColor = Color.White)
             )
