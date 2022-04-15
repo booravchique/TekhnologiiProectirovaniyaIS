@@ -37,7 +37,7 @@ fun BUSTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() 
 
     MaterialTheme(
         colors = colors,
-        typography = robotoTypography,
+        typography = typography,
         shapes = Shapes,
         content = content
     )

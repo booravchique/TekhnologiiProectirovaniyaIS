@@ -17,7 +17,7 @@ private val robotoFontFamily = FontFamily(
     Font(R.font.roboto_black, FontWeight.Black),
 )
 
-val robotoTypography = Typography(
+val typography = Typography(
     h1 = TextStyle(
         fontFamily = robotoFontFamily,
         fontWeight = FontWeight.Black,
@@ -41,12 +41,12 @@ val robotoTypography = Typography(
     h5 = TextStyle(
         fontFamily = robotoFontFamily,
         fontWeight = FontWeight.Bold,
-        fontSize = 16.sp,
+        fontSize = 24.sp,
     ),
     h6 = TextStyle(
         fontFamily = robotoFontFamily,
-        fontWeight = FontWeight.Thin,
-        fontSize = 12.sp,
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp,
     ),
     body1 = TextStyle(
         fontFamily = robotoFontFamily,

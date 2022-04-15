@@ -4,10 +4,14 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/17c0065263b1ac8274468d1f294bb3f1/transformed/jetified-activity-compose-1.4.0/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/17c0065263b1ac8274468d1f294bb3f1/transformed/jetified-activity-compose-1.4.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/17c0065263b1ac8274468d1f294bb3f1/transformed/jetified-activity-compose-1.4.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.jdks/corretto-15.0.2/caches/transforms-3/17c0065263b1ac8274468d1f294bb3f1/transformed/jetified-activity-compose-1.4.0/res" />
+      <root url="file://$USER_HOME$/.jdks/corretto-15.0.2/caches/transforms-3/17c0065263b1ac8274468d1f294bb3f1/transformed/jetified-activity-compose-1.4.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.jdks/corretto-15.0.2/caches/transforms-3/17c0065263b1ac8274468d1f294bb3f1/transformed/jetified-activity-compose-1.4.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.activity/activity-compose/1.4.0/ce6628b757aa19fcb753d19404e709a95dd5757e/activity-compose-1.4.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/corretto-15.0.2/caches/modules-2/files-2.1/androidx.activity/activity-compose/1.4.0/ce6628b757aa19fcb753d19404e709a95dd5757e/activity-compose-1.4.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

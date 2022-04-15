@@ -18,6 +18,4 @@ class repository(private val dao: dao) {
     suspend fun deleteInfo(item: loginInfo) {
         dao.delete(item)
     }
-
-
 }

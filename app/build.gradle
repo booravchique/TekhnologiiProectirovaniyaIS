@@ -4,9 +4,22 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlin-android-extensions'
 
+    id 'com.google.devtools.ksp' version '1.5.21-1.0.0-beta07'
+
     //hilt
 //    id 'kotlin-kapt'
 //    id 'dagger.hilt.android.plugin'
+}
+
+kotlin {
+    sourceSets{
+        debug {
+            kotlin.srcDir("build/generated/ksp/debug/kotlin")
+        }
+        release {
+            kotlin.srcDir("build/generated/ksp/release/kotlin")
+        }
+    }
 }
 
 android {
@@ -14,7 +27,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.bus"
-        minSdk 21
+        minSdk 23
         targetSdk 31
         versionCode 1
         versionName "1.0"
@@ -80,6 +93,10 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     kapt 'android.arch.persistence.room:compiler:1.0.0'
 
+
+    //nav lib
+    implementation "io.github.raamcosta.compose-destinations:core:1.4.4-beta"
+    ksp "io.github.raamcosta.compose-destinations:ksp:1.4.4-beta"
 
 
     //hilt

@@ -1,10 +1,6 @@
-package com.example.bus
+package com.example.bus.ui.layot
 
 import android.app.Application
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -24,42 +20,18 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.bus.R
 import com.example.bus.entity.loginInfo
-import com.example.bus.ui.theme.BUSTheme
 import com.example.bus.ui.theme.RobotoFontFamily
 import com.example.bus.viewmodel.busViewModel
 import com.example.bus.viewmodel.busViewModelFactory
 
-class MainActivity : ComponentActivity() {
-    val vm by viewModels<busViewModel>{ busViewModelFactory(applicationContext as Application)}
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            BUSTheme {
-//                LogInComposable(vm)
-                FindTicketsScreen()
-
-            }
-        }
-    }
-}
-
-
 @Composable
-fun LogInComposable(
-    vm : busViewModel
-) {
+fun LogInComposable() {
 
     val shape = RoundedCornerShape(30.dp)
     val LoginValue = remember { mutableStateOf("") }
     val PasswordValue = remember { mutableStateOf("") }
-
-    val context = LocalContext.current
-    val vm: busViewModel = viewModel(
-        factory = busViewModelFactory(context.applicationContext as Application)
-    )
-
-    val loginInfoData = listOf(loginInfo( 0,"User1", "User1"))
 
     Box(
         modifier = Modifier
@@ -114,8 +86,14 @@ fun LogInComposable(
             )
             Button(
                 onClick = {
-                    vm.addInfo(loginInfoData)
-                    //LoginFun(Login = LoginValue.value, Password = PasswordValue.value)
+                    if (PasswordValue.value.isNotEmpty() && LoginValue.value.isNotEmpty()) {
+                        if(PasswordValue.value == "User" && LoginValue.value == "User") {
+
+                        }
+
+                    } else {
+                        //toast ошибка
+                    }
                 },
                 modifier = Modifier
                     .padding(top = 55.dp)
@@ -143,19 +121,3 @@ fun LogInComposable(
         }
     }
 }
-
-fun LoginFun(Password: String, Login: String) {
-    if (Password.isNotEmpty() && Login.isNotEmpty()) {
-        if (Login == "User" && Password == "User") {
-            //navigation
-        } else {
-            //неправильный логин или пароль и желательно поменять цвет
-        }
-    } else {
-        //toast ошибка
-    }
-}
-
-
-
-

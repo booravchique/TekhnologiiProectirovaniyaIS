@@ -4,10 +4,13 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/661bec0c3590f62683e464415dd90220/transformed/jetified-room-ktx-2.3.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/661bec0c3590f62683e464415dd90220/transformed/jetified-room-ktx-2.3.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/661bec0c3590f62683e464415dd90220/transformed/jetified-room-ktx-2.3.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.jdks/corretto-15.0.2/caches/transforms-3/661bec0c3590f62683e464415dd90220/transformed/jetified-room-ktx-2.3.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.jdks/corretto-15.0.2/caches/transforms-3/661bec0c3590f62683e464415dd90220/transformed/jetified-room-ktx-2.3.0/res" />
+      <root url="jar://$USER_HOME$/.jdks/corretto-15.0.2/caches/transforms-3/661bec0c3590f62683e464415dd90220/transformed/jetified-room-ktx-2.3.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.room/room-ktx/2.3.0/f8b846b2835c246c1a1181674e9f44e6d6485913/room-ktx-2.3.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/corretto-15.0.2/caches/modules-2/files-2.1/androidx.room/room-ktx/2.3.0/f8b846b2835c246c1a1181674e9f44e6d6485913/room-ktx-2.3.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
