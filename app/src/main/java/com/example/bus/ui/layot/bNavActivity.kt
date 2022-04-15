@@ -15,10 +15,10 @@ fun NavigationGraph(navController: NavHostController) {
             FindTicketsScreen()
         }
         composable(BottomNavItem.Schelude.screen_route) {
-            NetworkScreen()
+            ScheludeScreen()
         }
         composable(BottomNavItem.Profile.screen_route) {
-            AddPostScreen()
+            ProfileScreen()
         }
 
     }

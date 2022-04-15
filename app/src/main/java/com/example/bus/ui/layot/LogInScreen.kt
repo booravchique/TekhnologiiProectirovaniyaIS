@@ -1,5 +1,6 @@
 package com.example.bus.ui.layot
 
+import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -14,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -29,7 +31,7 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 fun LogInComposable(
     navigator: DestinationsNavigator
 ) {
-
+    val context = LocalContext.current
     val shape = RoundedCornerShape(30.dp)
     val LoginValue = remember { mutableStateOf("") }
     val PasswordValue = remember { mutableStateOf("") }
@@ -51,14 +53,14 @@ fun LogInComposable(
                 modifier = Modifier
                     .padding(bottom = 40.dp),
                 style = MaterialTheme.typography.h3,
-
-                )
+                fontSize = 20.sp,
+            )
             TextField(
                 value = LoginValue.value,
                 onValueChange = { LoginValue.value = it },
                 modifier = Modifier
                     .width(320.dp)
-                    .height(70.dp)
+                    .height(80.dp)
                     .padding(top = 10.dp, bottom = 10.dp)
                     .clip(shape)
                     .border(
@@ -74,7 +76,7 @@ fun LogInComposable(
                 onValueChange = { PasswordValue.value = it },
                 modifier = Modifier
                     .width(320.dp)
-                    .height(70.dp)
+                    .height(80.dp)
                     .padding(top = 10.dp, bottom = 10.dp)
                     .clip(shape)
                     .border(
@@ -88,12 +90,22 @@ fun LogInComposable(
             Button(
                 onClick = {
                     if (PasswordValue.value.isNotEmpty() && LoginValue.value.isNotEmpty()) {
-                        if(PasswordValue.value == "User" && LoginValue.value == "User") {
+                        if (PasswordValue.value == "User" && LoginValue.value == "User") {
                             navigator.navigate(MainScreenViewDestination())
+                        } else {
+                            Toast.makeText(
+                                context,
+                                "Неправильный логин или пароль",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
 
                     } else {
-                        //toast ошибка
+                        Toast.makeText(
+                            context,
+                            "У вас есть пустые поля",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 },
                 modifier = Modifier
@@ -122,3 +134,23 @@ fun LogInComposable(
         }
     }
 }
+
+//@Composable
+//fun ToastDemo(msg: String, context: Context) {
+//    val context = context
+//    Column(
+//        content = {
+//            Button(onClick = {
+//                Toast.makeText(
+//                    context,
+//                    "${msg}",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            }, content = {
+//                Text(text = "Show Toast")
+//            })
+//        }, modifier = Modifier.fillMaxSize(),
+//        verticalArrangement = Arrangement.Center,
+//        horizontalAlignment = Alignment.CenterHorizontally
+//    )
+//}

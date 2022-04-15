@@ -1,6 +1,5 @@
 package com.example.bus.repository
 
-import com.example.bus.R
 import com.example.model.OptionCard
 
 class OptionCardRepository {
