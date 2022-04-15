@@ -1,8 +1,5 @@
 package com.example.model
 
-import android.text.format.Time
-import java.util.Date
-
 data class OptionCard(
     val from: String,
     val to: String,

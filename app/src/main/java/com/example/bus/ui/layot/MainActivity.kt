@@ -33,21 +33,26 @@ import com.example.bus.ui.theme.BUSTheme
 import com.example.bus.ui.theme.RobotoFontFamily
 import com.example.bus.viewmodel.busViewModel
 import com.example.bus.viewmodel.busViewModelFactory
+import com.ramcosta.composedestinations.DestinationsNavHost
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             BUSTheme {
-                LogInComposable()
+                DestinationsNavHost(navGraph = NavGraphs.root)
             }
         }
     }
 }
 
-@Preview
+@Destination
 @Composable
-fun MainScreenView(){
+fun MainScreenView(
+    navigator: DestinationsNavigator
+){
     val navController = rememberNavController()
     Scaffold(
         bottomBar = { bNavComposable(navController = navController) }

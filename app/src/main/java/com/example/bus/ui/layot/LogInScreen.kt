@@ -1,6 +1,5 @@
 package com.example.bus.ui.layot
 
-import android.app.Application
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -15,19 +14,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.bus.R
-import com.example.bus.entity.loginInfo
+import com.example.bus.ui.layot.destinations.MainScreenViewDestination
 import com.example.bus.ui.theme.RobotoFontFamily
-import com.example.bus.viewmodel.busViewModel
-import com.example.bus.viewmodel.busViewModelFactory
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
+
+@Destination(start = true)
 @Composable
-fun LogInComposable() {
+fun LogInComposable(
+    navigator: DestinationsNavigator
+) {
 
     val shape = RoundedCornerShape(30.dp)
     val LoginValue = remember { mutableStateOf("") }
@@ -88,7 +89,7 @@ fun LogInComposable() {
                 onClick = {
                     if (PasswordValue.value.isNotEmpty() && LoginValue.value.isNotEmpty()) {
                         if(PasswordValue.value == "User" && LoginValue.value == "User") {
-
+                            navigator.navigate(MainScreenViewDestination())
                         }
 
                     } else {
